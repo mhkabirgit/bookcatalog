@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h2=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='first_name') First Name:
+      input#first_name.form-control(type='text' placeholder='First name (Christian) last' name='first_name' required='true' value=(undefined===author ? '' : author.first_name) )
+      label(for='midle_name') Middle Name:
+      input#middle_name.form-control(type='text' placeholder='Middle name (optional)' name='middle_name' value=(undefined===author ? '' : author.middle_name))
+      label(for='last_name') Last Name:
+      input#last_name.form-control(type='text' placeholder='Last name (surname)' name='last_name' required='true' value=(undefined===author ? '' : author.last_name))
+    button.btn.btn-primary(type='submit') Create/Update
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

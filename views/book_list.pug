@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h2= title
+
+  table
+    each book in book_list
+      tr
+        td
+          a(href=book.url) #{book.title}
+          |  (#{book.author.name}) &nbsp; &nbsp;
+        td
+          form(method='GET' action=book.url+'/delete')
+            button.btn.btn-primary(type='submit')  Delete
+    else
+      p There are no books.

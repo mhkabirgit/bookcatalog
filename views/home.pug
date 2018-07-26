@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2= title
+  hr
+  h3 Books
+  hr
+  table
+    each book in book_list
+      tr
+        td
+          a(href=book.url) #{book.title}
+          |  (#{book.author.name}) &nbsp; &nbsp;
+    else
+      p There are no books.

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2= title
+
+  table
+    each author in author_list
+      tr
+        td
+          a(href=author.url) #{author.name} &nbsp; &nbsp;
+        td
+          form(method='GET' action=author.url+'/delete')
+            button.btn.btn-primary(type='submit') Delete
+    else
+      p There are no authors.

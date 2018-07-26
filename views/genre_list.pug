@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h2= title
+  br
+  table
+    each genre in genre_list
+      tr
+        td
+          a(href=genre.url) #{genre.name} &nbsp;
+          td
+            form(method='GET' action=genre.url+'/delete')
+              button.btn.btn-primary(type='submit') Delete
+
+    else
+      p There are no genres.

@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h2 Author: #{author.name}
+
+  div(class='book-list')
+
+    h4 Books
+
+    dl
+    each book in author_books
+      dt
+        a(href=book.url) #{book.title}
+      dd #{book.synopsis}
+
+    else
+      p This author has no books.
+
+    hr
+    table
+      tr
+        td
+          form(method='GET' action=author.url+'/update')
+            button.btn.btn-primary(type='submit') Update
+        td
+          form(method='GET' action=author.url+'/delete')
+            button.btn.btn-primary(type='submit') Delete

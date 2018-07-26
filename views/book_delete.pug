@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h2 #{title}: #{book.title}
+
+  p #[strong Author:]
+    a(href=book.author.url) #{book.author.name}
+  p #[strong Synopsis:] #{book.synopsis}
+  p #[strong ISBN:] #{book.isbn}
+  p #[strong Genre:]&nbsp;
+    each val, index in book.genre
+      a(href=val.url) #{val.name}
+      if index < book.genre.length - 1
+        |,
+  hr
+  p Do you really want to delete this book?
+  hr
+  table
+    tr
+      td
+        form(method='POST' action=book.url+'/delete')
+          button.btn.btn-primary(type='submit')  Delete

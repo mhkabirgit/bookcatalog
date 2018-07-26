@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+  h2 Genre: #{genre.name}
+
+  if error
+    div(class='error')
+      h5 #{error}
+  br
+  br
+  div(class='book-list')
+    h4 Books
+    dl
+    each book in genre_books
+      dt
+        a(href=book.url) #{book.title}
+      dd #{book.synopsis}
+
+    else
+      p This genre has no books
+  hr
+  table
+    tr
+      td
+        form(method='GET' action=genre.url+'/update')
+          button.btn.btn-primary(type='submit') Update
+      td
+        form(method='POST' action=genre.url + '/delete/')
+          button.btn.btn-primary(type='submit') Delete

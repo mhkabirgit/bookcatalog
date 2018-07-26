@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h2=title
+  form(method='POST' action='')
+    div.form-group
+      label(for='email') Email:
+      input#email.form-control(type='text' placeholder='user@example.com' name='email' required='true' value=(undefined===user ? '' : user.email) )
+      label(for='username') Username:
+      input#username.form-control(type='text' placeholder='Username' name='username' value=(undefined===user ? '' : user.username))
+      label(for='password') Password:
+      input#password.form-control(type='password' placeholder='Password' name='password' required='true' value=(undefined===user ? '' : user.password))
+      label(for='passwordcnf') Confirm Password:
+      input#passwordcnf.form-control(type='password' placeholder='Confirm Password' name='passwordcnf' required='true' value=(undefined===user ? '' : user.passwordcnf))
+    button.btn.btn-primary(type='submit') Sign Up
+  hr
+  if error
+    div(class='error')
+      h4 #{error}
+  if errors
+    div(class='error')
+    ul
+      for error in errors
+        li!= error.msg
