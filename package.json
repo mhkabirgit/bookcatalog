@@ -1,5 +1,5 @@
 {
-  "name": "test-book-catalogue",
+  "name": "book-catalogue",
   "version": "0.0.0",
   "private": true,
   "scripts": {
