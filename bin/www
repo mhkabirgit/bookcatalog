@@ -8,24 +8,26 @@ var app = require('../app');
 var debug = require('debug')('test-book-catalogue:server');
 var http = require('http');
 
+var App =app.App;
+var Port = app.Port;
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+//var port = normalizePort(process.env.PORT || '3000');
+App.set('port', Port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = http.createServer(App);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(Port);
 server.on('error', onError);
 server.on('listening', onListening);
 

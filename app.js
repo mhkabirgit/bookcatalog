@@ -13,8 +13,9 @@ var usersRouter = require('./routes/users');
 var catalogRouter = require('./routes/catalog');
 // var img(src=require("./public/images/catalog-banner.png"));
 
+const port=3010;
 var app = express();
-app.set('port', 3000);
+app.set('port', port);
 
 var mongodb = 'mongodb://127.0.0.1/tbcatalogue';
 mongoose.connect(mongodb);
@@ -83,4 +84,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+module.exports.App = app;
+module.exports.Port= port;
